@@ -1,5 +1,8 @@
 {
-  "name": "ionic3-angular4",
-  "integrations": {},
-  "type": "ionic-angular"
+  "name": "VehiCargo",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "VehiCargo",
+  "app_id": ""
 }
