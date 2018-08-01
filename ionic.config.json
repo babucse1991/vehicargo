@@ -3,6 +3,5 @@
   "integrations": {
     "cordova": {}
   },
-  "type": "VehiCargo",
-  "app_id": ""
+  "type": "VehiCargo"
 }

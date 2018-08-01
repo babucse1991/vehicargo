@@ -1,0 +1,6 @@
+{
+    "rejectUnauthorized": false,
+    "githubToken": " 4e5e40e7d689a2dcb10289ee9ed8e53aaa8bb133",
+    "registryURL": "http://api.typings.org/",
+    "defaultSource": "dt"
+}
