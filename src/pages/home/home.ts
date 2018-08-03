@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 // import { ViewChild } from '@angular/core';
-import { GoogleMap, GoogleMapsEvent, GoogleMaps  } from '@ionic-native/google-maps';
+import { GoogleMap, GoogleMapsEvent, GoogleMaps, Marker, Geocoder, GeocoderResult  } from '@ionic-native/google-maps';
 // import {} from '@types/googlemaps';
 import { NavController } from 'ionic-angular';
 import { TruckFilterPage } from '../truck-filter/truck-filter';
@@ -16,7 +16,7 @@ export class HomePage {
   map: google.maps.Map;*/
 
   map: GoogleMap;
-  
+  searchAddress : any;
   
   constructor(public navCtrl: NavController) {
   
@@ -32,9 +32,52 @@ export class HomePage {
 
     this.map.one(GoogleMapsEvent.MAP_READY).then(() => {
       console.log('Map is ready to use!');
+      this.addMarkers();
     });
 
   }
+
+  addMarkers() {
+    this.map.addMarkerSync({
+      title : 'Ionic marker',
+      icon : 'blue',
+      animation : 'DROP',
+      position : { 
+        lat : 43.07,
+        lng : -89.38
+       }
+    });
+  
+    this.map.addMarker({
+      title : 'Ionic marker',
+      icon : 'blue',
+      animation : 'DROP',
+      position : { 
+        lat : 40.07,
+        lng : -89.38
+       }
+    }).then(this.onMarkerAdded);
+
+}
+
+geoCoderAddressBar() {
+  Geocoder.geocode({
+    "address": this.searchAddress
+  }).then( (results : GeocoderResult[]) => {
+    console.log(results);
+    return this.map.addMarker({
+      position : results[0].position,
+      title : JSON.stringify(results[0].position)
+    });
+  })
+}
+
+onMarkerAdded( marker : Marker ) {
+  marker.one(GoogleMapsEvent.MARKER_CLICK).then( () => {
+    alert('Marker : ' + marker.getTitle() + ' is clicked.');
+  });
+}
+
 
   /*ngOnInit() {
     var mapProp = {

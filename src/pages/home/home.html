@@ -16,8 +16,9 @@
 
     <!-- <div #gmap style="position:relative;width:100%;height:-webkit-fill-available;z-index: 0;"></div> -->
     
-    <div id="map_canvas">
-      <button ion-button (click)="onButtonClick($event)">Start Demo</button>
-    </div>
+    <ion-input type="text" placeholder="Search address" name="Search address" [(ngModel)]="searchAddress"></ion-input>
+    <button type="button" class="btn btn-success"(click)="geoCoderAddressBar()" > Search </button>
+
+    <!-- <div id="map_canvas" style="position:relative;width:100%;height:-webkit-fill-available;z-index: 0;"></div> -->
     
 </ion-content>
