@@ -6,18 +6,22 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page14">
-    <div class="spacer" style="width:300px;height:10%;" id="quickProfile-spacer4"></div>
+    
       
     <ion-searchbar placeholder="Pickup location" name="Pickup location" id="truckFilter-search2"></ion-searchbar>
+    <ion-searchbar placeholder="Drop location" name="Drop location" id="truckFilter-search3"></ion-searchbar>
+
     <ion-item id="truckFilter-select1">
       <ion-label>Vehical type</ion-label>
       <ion-select name="Vehical type">
         <ion-option>Select</ion-option>
-        <ion-option>Torress</ion-option>
-        <ion-option>Eaicher</ion-option>
+        <ion-option>EICHER 404</ion-option>
+        <ion-option>Mini Truck</ion-option>
       </ion-select>
     </ion-item>
-    <ion-searchbar placeholder="Drop location" name="Drop location" id="truckFilter-search3"></ion-searchbar>
+    
+    
+    <div class="spacer" style="width:300px;height:5%;" id="quickProfile-spacer4"></div>
   <button id="truckFilter-button7" ion-button color="positive" block style="border-radius:0px 0px 0px 0px;" on-click="goToHome()">
     <ion-icon name="cash"></ion-icon> &nbsp;&nbsp;Get Fare</button>
 </ion-content>

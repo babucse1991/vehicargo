@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 
-
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { OrdersPage } from '../pages/orders/orders';
@@ -24,6 +23,8 @@ import { EditTruckInfoPage } from '../pages/edit-truck-info/edit-truck-info';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+
 
 @NgModule({
   declarations: [
