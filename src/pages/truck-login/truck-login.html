@@ -12,19 +12,19 @@
     <ion-list id="truckLogin-list5">
       <ion-item id="truckLogin-input1">
         <ion-label floating>
-          Phone
+          Email
         </ion-label>
-        <ion-input type="number" placeholder="Phone" name="Phone"></ion-input>
+        <ion-input type="text" placeholder="Eamil" name="credentials.email" [(ngModel)]="credentials.email"></ion-input>
       </ion-item>
       <ion-item id="truckLogin-input2">
         <ion-label floating>
-          OTP
+          Password
         </ion-label>
-        <ion-input type="number" placeholder="OTP"></ion-input>
+        <ion-input type="password" placeholder="Password" name="credentials.password" [(ngModel)]="credentials.password"></ion-input>
       </ion-item>
     </ion-list>
-    <button id="truckLogin-button1" ion-button color="positive" block style="border-radius:0px 0px 0px 0px;" on-click="goToQuickProfile()">
-      Log in
-    </button>
+    <button id="truckLogin-button1" ion-button color="positive" block style="border-radius:0px 0px 0px 0px;" (click)="login()">Log in</button>
+    <div class="spacer" style="width:300px;height:10px;" id="quickProfile-spacer4"></div>
+    <div style="width:100%;text-align: center;"  (click)="signUp()"><strong> Sign up</strong></div>
   </form>
 </ion-content>

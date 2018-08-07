@@ -2,6 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -19,7 +20,7 @@ import { TruckFilterPage } from '../pages/truck-filter/truck-filter';
 import { MyJobPage } from '../pages/my-job/my-job';
 import { TruckInfoPage } from '../pages/truck-info/truck-info';
 import { EditTruckInfoPage } from '../pages/edit-truck-info/edit-truck-info';
-
+import { SignupPage } from '../pages/signup/signup';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -43,11 +44,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TruckFilterPage,
     MyJobPage,
     TruckInfoPage,
-    EditTruckInfoPage
+    EditTruckInfoPage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -66,7 +69,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TruckFilterPage,
     MyJobPage,
     TruckInfoPage,
-    EditTruckInfoPage
+    EditTruckInfoPage,
+    SignupPage
   ],
   providers: [
     StatusBar,
