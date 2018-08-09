@@ -14,13 +14,13 @@
         <ion-label floating>
           Email
         </ion-label>
-        <ion-input type="text" placeholder="Eamil" name="credentials.email" [(ngModel)]="credentials.email"></ion-input>
+        <ion-input type="text" name="credentials.email" [(ngModel)]="credentials.email"></ion-input>
       </ion-item>
       <ion-item id="truckLogin-input2">
         <ion-label floating>
           Password
         </ion-label>
-        <ion-input type="password" placeholder="Password" name="credentials.password" [(ngModel)]="credentials.password"></ion-input>
+        <ion-input type="password" name="credentials.password" [(ngModel)]="credentials.password"></ion-input>
       </ion-item>
     </ion-list>
     <button id="truckLogin-button1" ion-button color="positive" block style="border-radius:0px 0px 0px 0px;" (click)="login()">Log in</button>

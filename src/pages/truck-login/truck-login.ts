@@ -9,6 +9,7 @@ import { TabsPage } from '../tabs/tabs';
 import { TruckFilterPage } from '../truck-filter/truck-filter';
 import { AlertController } from 'ionic-angular';
 import { localConstants } from '../../const/environment';
+import { CommonServiceProvider } from '../../providers/common-service/common-service';
 
 @Component({
   selector: 'page-truck-login',
@@ -20,7 +21,7 @@ export class TruckLoginPage {
   private credentials : any = {};
 
   constructor(public navCtrl: NavController, private alertCtrl: AlertController,
-    private storage : Storage) { }
+    private storage : Storage, private service : CommonServiceProvider) { }
 
 
   ngOnInit() {
@@ -29,6 +30,7 @@ export class TruckLoginPage {
   }
 
   login() {
+    this.service.startLoading();
     firebase.auth().signInWithEmailAndPassword(this.credentials.email, this.credentials.password)
     .then(( user ) => { 
       console.log(user);
@@ -36,15 +38,12 @@ export class TruckLoginPage {
       this.storage.set('usrData', { uid : this.user.uid, userType : 'CUSTOMER' });
       localConstants.uid = this.user.uid;
       localConstants.userType = 'CUSTOMER';
+      this.service.stopLoading();
       this.navCtrl.setRoot(TabsPage);  
 
     },(error) => { 
-      let alert = this.alertCtrl.create({
-        title: 'Sign In',
-        subTitle: error.message,
-        buttons: ['Dismiss']
-      });
-      alert.present();
+      this.service.stopLoading();
+      this.service.commonAlert('Sign In', error.message);
     });
 
 

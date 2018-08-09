@@ -4,7 +4,7 @@
       Edit Profile
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-left>
+      <button ion-button icon-left (click)="updateProfileDetails()">
         <ion-icon name="code"></ion-icon>
         Update
       </button>
@@ -14,53 +14,53 @@
 <ion-content padding id="page13">
       
         <ion-item-divider color="light" id="editProfile-list-item-divider6">
-          <strong>Personal info</strong>
+          <strong>General info</strong>
         </ion-item-divider>
         <ion-item id="editProfile-input13">
           <ion-label floating>
             First name
           </ion-label>
-          <ion-input type="text" placeholder="First name" name="First name"></ion-input>
+          <ion-input type="text" name="First name" [(ngModel)]="profile.firstName"></ion-input>
         </ion-item>
         <ion-item id="editProfile-input14">
           <ion-label floating>
             Last name
           </ion-label>
-          <ion-input type="text" placeholder="Last name" name="Last name"></ion-input>
+          <ion-input type="text" name="Last name" [(ngModel)]="profile.lastName"></ion-input>
         </ion-item>
         <ion-item id="editProfile-input15">
           <ion-label floating>
             Phone
           </ion-label>
-          <ion-input type="tel" placeholder="Phone" name="Phone"></ion-input>
+          <ion-input type="tel" name="Phone" [(ngModel)]="profile.phone"></ion-input>
         </ion-item>
-        <ion-item id="editProfile-input16">
-          <ion-label floating>
-            Email
-          </ion-label>
-          <ion-input type="email" placeholder="Email" name="Email"></ion-input>
-        </ion-item>
-  
+        
         <ion-item-divider color="light" id="editProfile-list-item-divider7">
-         <strong> General info</strong>
+         <strong> Personal info</strong>
         </ion-item-divider>
         <ion-item id="editProfile-input17">
           <ion-label floating>
             Licence
           </ion-label>
-          <ion-input type="text" placeholder="Licence" name="Licence"></ion-input>
+          <ion-input type="text" name="Licence" [(ngModel)]="profile.licence"></ion-input>
         </ion-item>
         <ion-item id="editProfile-input18">
           <ion-label floating>
             Adhar
           </ion-label>
-          <ion-input type="number" placeholder="Adhar" name="Adhar"></ion-input>
+          <ion-input type="number" name="Adhar" [(ngModel)]="profile.adhar"></ion-input>
         </ion-item>
         <ion-item id="editProfile-input19">
           <ion-label floating>
             DOB
           </ion-label>
-          <ion-input type="date" placeholder="Date of birth" name="Date of birth"></ion-input>
+          <ion-input type="date" name="Date of birth" [(ngModel)]="profile.dateOfBirth"></ion-input>
         </ion-item>
-     
+        <ion-item>
+          <ion-label>Driving type</ion-label>
+          <ion-select [(ngModel)]="profile.drivingType">
+            <ion-option value="Heavy">Heavy</ion-option>
+            <ion-option value="Light">Light</ion-option>
+          </ion-select>
+        </ion-item>
 </ion-content>

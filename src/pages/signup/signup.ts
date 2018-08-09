@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
 import * as firebase from 'firebase';
 import { Storage } from '@ionic/storage';
 
 
 import { QuickProfilePage } from '../quick-profile/quick-profile';
 import { localConstants } from '../../const/environment';
+import { CommonServiceProvider } from '../../providers/common-service/common-service'
 
 @Component({
   selector: 'page-signup',
@@ -18,8 +18,8 @@ export class SignupPage {
   credentials: any = {};
   private user: firebase.User;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController,
-    private storage : Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    private storage : Storage, private service : CommonServiceProvider) {
     this.param = navParams.data;
   }
 
@@ -28,7 +28,7 @@ export class SignupPage {
   }
 
   userSignUo() {
-
+    this.service.startLoading();
     firebase.auth().createUserWithEmailAndPassword(this.credentials.email, this.credentials.password).then((user) => {
 
       console.log(user);
@@ -38,22 +38,16 @@ export class SignupPage {
       localConstants.uid = this.user.uid;
       localConstants.userType = this.param.userType;
 
-      let alert = this.alertCtrl.create({
-        title: 'Sign Up',
-        subTitle: 'Successfully registered!',
-        buttons: ['Dismiss']
+      firebase.database().ref('userProfile/'+localConstants.uid).set({ email : this.credentials.email, userType : localConstants.userType }).then( (snap) => {
+        this.service.stopLoading();
+        this.service.commonAlert('Sign Up', 'Successfully registered!');
+        this.navCtrl.setRoot(QuickProfilePage);         
       });
-      alert.present();
-      this.navCtrl.setRoot(QuickProfilePage);
-
+     
     }).catch((error) => {
+      this.service.stopLoading();
+      this.service.commonAlert('Sign Up', error.message);
       console.log(' Sign in err : ' + error);
-      let alert = this.alertCtrl.create({
-        title: 'Sign Up',
-        subTitle: error.message,
-        buttons: ['Dismiss']
-      });
-      alert.present();
     });
 
   }

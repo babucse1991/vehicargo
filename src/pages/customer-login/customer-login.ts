@@ -7,8 +7,8 @@ import { QuickProfilePage } from '../quick-profile/quick-profile';
 import { TabsPage } from '../tabs/tabs';
 import { TruckFilterPage } from '../truck-filter/truck-filter';
 import { SignupPage } from '../signup/signup';
-import { AlertController } from 'ionic-angular';
 import { localConstants } from '../../const/environment';
+import { CommonServiceProvider } from '../../providers/common-service/common-service';
 
 @Component({
   selector: 'page-customer-login',
@@ -19,10 +19,11 @@ export class CustomerLoginPage {
   private user: firebase.User;
   private credentials : any = {};
 
-  constructor(public navCtrl: NavController, private alertCtrl : AlertController,
+  constructor(public navCtrl: NavController, private service : CommonServiceProvider,
     private storage : Storage) { }
 
   login() {
+    this.service.startLoading();
     firebase.auth().signInWithEmailAndPassword(this.credentials.email, this.credentials.password)
     .then(( user ) => { 
       console.log(user);
@@ -30,14 +31,11 @@ export class CustomerLoginPage {
       this.storage.set('usrData', { uid : this.user.uid, userType : 'CUSTOMER' });
       localConstants.uid = this.user.uid;
       localConstants.userType = 'CUSTOMER';
+      this.service.stopLoading();
       this.navCtrl.setRoot(TabsPage);
     },(error) => { 
-      let alert = this.alertCtrl.create({
-        title: 'Sign In',
-        subTitle: error.message,
-        buttons: ['Dismiss']
-      });
-      alert.present();
+      this.service.stopLoading();
+      this.service.commonAlert('Sign In', error.message);
     });
   }
 
