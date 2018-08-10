@@ -4,6 +4,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
 import { Http } from '@angular/http';
+import { Network } from '@ionic-native/network';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -80,7 +81,8 @@ import { CommonServiceProvider } from '../providers/common-service/common-servic
     GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler}, 
     CommonServiceProvider,
-    Http
+    Http,
+    Network
   ]
 })
 export class AppModule {}
