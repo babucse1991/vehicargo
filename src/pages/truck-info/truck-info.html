@@ -11,38 +11,38 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page15">
+<ion-content id="page15">
   
       <ion-item color="none" id="truckInfo-list-item69">
-        <strong>Vehical name : </strong> Tata 407 
+        Vehical name :  {{truckInfo.truckName}}
       </ion-item>
       <ion-item color="none" id="truckInfo-list-item75">
-        <strong>Dimentions : </strong> 10 X 6 X 6
+        Dimentions : {{truckInfo.height}}Ft X {{truckInfo.width}}Ft X {{truckInfo.length}}Ft
       </ion-item>
       <ion-item color="none" id="truckInfo-list-item71">
-        <strong>  Capacity  : </strong> 2500Kgs
+          Capacity  :  {{truckInfo.weight}}Kgs
       </ion-item>
 
       <ion-item color="none" id="truckInfo-list-item70">
-        <strong>  Base Fare  : </strong> ₹499/5Km
+          Base Fare  :  ₹{{truckInfo.baseFair}}/{{truckInfo.baseFairPerKm}}Km
       </ion-item>
       <ion-item color="none" id="truckInfo-list-item72">
-        <strong>  Additional Km  : </strong> ₹49/1Km
+          Additional Km  :   ₹{{truckInfo.aditionalFair}}/{{truckInfo.aditionalFairPerKm}}Km
       </ion-item>
       <ion-item color="none" id="truckInfo-list-item72">
-        <strong>  Hire time charge  : </strong> ₹4/Minute
+          Hire time charge  :  ₹{{truckInfo.timeCharge}}/Minute
       </ion-item>
       <ion-item color="none" id="truckInfo-list-item72">
-        <strong>  Current availabe location : </strong> Chennai
+          Current availabe location :  {{truckInfo.currentLocation}}
       </ion-item>
       <ion-item color="none" id="truckInfo-list-item73">
-        <strong>Contact : </strong> : Babu / +91 9898989898
+        Contact : {{truckInfo.phoneNumber}}
       </ion-item>
-      <ion-item id="truckInfo-toggle1">
+      <ion-item id="truckInfo-toggle1" >
           <ion-label>
             Availabe
           </ion-label>
-          <ion-toggle color="positive" checked="true"></ion-toggle>
+          <ion-toggle color="positive" checked="false" [(ngModel)]="truckInfo.isAvailabe"></ion-toggle>
       </ion-item>
   
 </ion-content>

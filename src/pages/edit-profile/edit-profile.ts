@@ -24,7 +24,10 @@ export class EditProfilePage {
   getProfileDetails() {
     this.service.startLoading();
     firebase.database().ref('userProfile/'+localConstants.uid).once('value').then( (snap) => {
-      this.profile = snap.val();
+      let profile = snap.val();
+      if ( profile != null && profile != undefined) {
+        this.profile = profile;
+      }
       console.log(this.profile);
       this.service.stopLoading();
     }).catch( (error) => {
