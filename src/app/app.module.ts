@@ -5,6 +5,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
 import { Http } from '@angular/http';
 import { Network } from '@ionic-native/network';
+import { ImagePicker } from '@ionic-native/image-picker';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -23,6 +24,7 @@ import { MyJobPage } from '../pages/my-job/my-job';
 import { TruckInfoPage } from '../pages/truck-info/truck-info';
 import { EditTruckInfoPage } from '../pages/edit-truck-info/edit-truck-info';
 import { SignupPage } from '../pages/signup/signup';
+import { UploadProofPage } from '../pages/upload-proof/upload-proof';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -48,7 +50,8 @@ import { CommonServiceProvider } from '../providers/common-service/common-servic
     MyJobPage,
     TruckInfoPage,
     EditTruckInfoPage,
-    SignupPage
+    SignupPage,
+    UploadProofPage
   ],
   imports: [
     BrowserModule,
@@ -73,7 +76,8 @@ import { CommonServiceProvider } from '../providers/common-service/common-servic
     MyJobPage,
     TruckInfoPage,
     EditTruckInfoPage,
-    SignupPage
+    SignupPage,
+    UploadProofPage
   ],
   providers: [
     StatusBar,
@@ -82,7 +86,8 @@ import { CommonServiceProvider } from '../providers/common-service/common-servic
     {provide: ErrorHandler, useClass: IonicErrorHandler}, 
     CommonServiceProvider,
     Http,
-    Network
+    Network,
+    ImagePicker
   ]
 })
 export class AppModule {}

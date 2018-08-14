@@ -7,6 +7,7 @@ import { EditProfilePage } from '../edit-profile/edit-profile';
 import { MyJobPage } from '../my-job/my-job';
 import { TruckInfoPage } from '../truck-info/truck-info';
 import { EditTruckInfoPage } from '../edit-truck-info/edit-truck-info';
+import { UploadProofPage } from '../upload-proof/upload-proof';
 import { WelcomePage } from '../welcome/welcome';
 import { localConstants } from '../../const/environment';
 
@@ -46,5 +47,9 @@ export class MenusPage {
   }goToEditTruckInfo(params){
     if (!params) params = {};
     this.navCtrl.push(EditTruckInfoPage);
+  }
+  goToUploadProof(params){
+    if (!params) params = {};
+    this.navCtrl.push(UploadProofPage);
   }
 }
