@@ -4,6 +4,7 @@ import { GoogleMap, GoogleMapsEvent, GoogleMapOptions, GoogleMaps, Marker, Geoco
 // import {} from '@types/googlemaps';
 import { NavController } from 'ionic-angular';
 import { TruckFilterPage } from '../truck-filter/truck-filter';
+import { SelectedTruckInfoPage } from '../selected-truck-info/selected-truck-info';
 
 
 @Component({
@@ -159,5 +160,9 @@ export class HomePage {
   } goToHome(params) {
     if (!params) params = {};
     this.navCtrl.push(HomePage);
+  }
+  gotoSelectTruck(params) {
+    if (!params) params = {};
+    this.navCtrl.push(SelectedTruckInfoPage);
   }
 }

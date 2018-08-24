@@ -1,0 +1,37 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Truck info</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item color="none" id="truckInfo-list-item75">
+    Dimentions : {{truckInfo.height}}Ft X {{truckInfo.width}}Ft X {{truckInfo.length}}Ft
+  </ion-item>
+  <ion-item color="none" id="truckInfo-list-item71">
+      Capacity  :  {{truckInfo.weight}}Kgs
+  </ion-item>
+
+  <ion-item color="none" id="truckInfo-list-item70">
+      Base Fare  :  ₹{{truckInfo.baseFair}}/{{truckInfo.baseFairPerKm}}Km
+  </ion-item>
+  <ion-item color="none" id="truckInfo-list-item72">
+      Additional Km  :   ₹{{truckInfo.aditionalFair}}/{{truckInfo.aditionalFairPerKm}}Km
+  </ion-item>
+  <ion-item color="none" id="truckInfo-list-item72">
+      Hire time charge  :  ₹{{truckInfo.timeCharge}}/Minute
+  </ion-item>
+  <ion-item text-wrap color="none" id="truckInfo-list-item72">
+      Current availabe location :  {{truckInfo.currentLocation}}
+  </ion-item>
+  <ion-item color="none" id="truckInfo-list-item73">
+    Contact : {{truckInfo.phoneNumber}}
+  </ion-item>
+  <button ion-button  color="positive" block style="border-radius:0px 0px 0px 0px;" (click)="bookingRequest()">Book</button>
+
+</ion-content>

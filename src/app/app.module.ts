@@ -25,6 +25,7 @@ import { TruckInfoPage } from '../pages/truck-info/truck-info';
 import { EditTruckInfoPage } from '../pages/edit-truck-info/edit-truck-info';
 import { SignupPage } from '../pages/signup/signup';
 import { UploadProofPage } from '../pages/upload-proof/upload-proof';
+import { SelectedTruckInfoPage } from '../pages/selected-truck-info/selected-truck-info';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -51,7 +52,8 @@ import { CommonServiceProvider } from '../providers/common-service/common-servic
     TruckInfoPage,
     EditTruckInfoPage,
     SignupPage,
-    UploadProofPage
+    UploadProofPage,
+    SelectedTruckInfoPage
   ],
   imports: [
     BrowserModule,
@@ -77,7 +79,8 @@ import { CommonServiceProvider } from '../providers/common-service/common-servic
     TruckInfoPage,
     EditTruckInfoPage,
     SignupPage,
-    UploadProofPage
+    UploadProofPage,
+    SelectedTruckInfoPage
   ],
   providers: [
     StatusBar,
