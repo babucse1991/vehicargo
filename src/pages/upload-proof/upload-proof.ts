@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
-import { ImagePicker } from '@ionic-native/image-picker';
 import * as firebase from 'firebase';
 
 import { localConstants } from '../../const/environment';
@@ -11,7 +10,7 @@ import { CommonServiceProvider } from '../../providers/common-service/common-ser
 })
 export class UploadProofPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private imagePicker: ImagePicker,
+  constructor(public navCtrl: NavController, public navParams: NavParams,
     private toastCtrl: ToastController, private service : CommonServiceProvider) {
   }
 
@@ -21,26 +20,26 @@ export class UploadProofPage {
 
 
   openImagePicker(){
-    this.imagePicker.hasReadPermission().then(
-      (result) => {
-        if(result == false){
-          // no callbacks required as this opens a popup which returns async
-          this.imagePicker.requestReadPermission();
-        }
-        else if(result == true){
-          this.imagePicker.getPictures({
-            maximumImagesCount: 1
-          }).then(
-            (results) => {
-              for (var i = 0; i < results.length; i++) {
-                this.uploadImageToFirebase(results[i]);
-              }
-            }, (err) => console.log(err)
-          );
-        }
-      }, (err) => {
-        console.log(err);
-      });
+    // this.imagePicker.hasReadPermission().then(
+    //   (result) => {
+    //     if(result == false){
+    //       // no callbacks required as this opens a popup which returns async
+    //       this.imagePicker.requestReadPermission();
+    //     }
+    //     else if(result == true){
+    //       this.imagePicker.getPictures({
+    //         maximumImagesCount: 1
+    //       }).then(
+    //         (results) => {
+    //           for (var i = 0; i < results.length; i++) {
+    //             this.uploadImageToFirebase(results[i]);
+    //           }
+    //         }, (err) => console.log(err)
+    //       );
+    //     }
+    //   }, (err) => {
+    //     console.log(err);
+    //   });
     }
 
     uploadImageToFirebase(image){
